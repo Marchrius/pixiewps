@@ -40,6 +40,10 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 /* Converts an hex string to a byte array */
 int hex_string_to_byte_array(char *in, unsigned char *out, int n_len) {
 	int i, j, o;
@@ -76,16 +80,8 @@ int hex_string_to_byte_array(char *in, unsigned char *out, int n_len) {
 
 /* Converts a string into an integer */
 int get_int(char *in, int *out) {
-	int i, o = 0, len = strlen(in);
-	for (i = 0; i < len; i++) {
-		if ('0' <= *in && *in <= '9')
-			o = o * 10 + *in - '0';
-		else
-			return 1;
-		in++;
-	};
-	*out = o;
-	return 0;
+    *out = atoi(in);
+    return 0;
 };
 
 /* Converts an unsigned integer to a char array without termination */
